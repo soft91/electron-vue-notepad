@@ -1,15 +1,5 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      height="40px"
-      color="#3B3B3B"
-    >
-      <div id="title-bar-btns" class="d-flex align-center">
-
-      </div>
-      <v-spacer></v-spacer>
-    </v-app-bar>
     <v-main>
       <v-container>
         <v-row>
@@ -43,5 +33,4 @@ export default class App extends Vue {
 }
 </script>
 <style scoped>
-
 </style>
