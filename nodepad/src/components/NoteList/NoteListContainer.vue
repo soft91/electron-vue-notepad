@@ -1,11 +1,5 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col>
-        <NoteList/>
-      </v-col>
-    </v-row>
-  </v-container>
+  <NoteList/>
 </template>
 
 <script lang="ts">

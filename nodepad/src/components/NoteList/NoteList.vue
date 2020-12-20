@@ -5,14 +5,14 @@
       :key="index"
       three-line
       >
-      <v-list-item-content class="card-container">
-        <v-list-item-title class="card-title">Three-line item</v-list-item-title>
-        <v-list-item-subtitle class="card-sub-title">
+      <v-list-item-content class="list-container">
+        <v-list-item-title class="list-title">Three-line item</v-list-item-title>
+        <v-list-item-subtitle class="list-sub-title">
           Secondary line text Lorem ipsum dolor sit amet,
         </v-list-item-subtitle>
-        <v-list-item-subtitle class="card-content">
+        <v-list-item-content class="list-content">
           consectetur adipiscing elit.
-        </v-list-item-subtitle>
+        </v-list-item-content>
       </v-list-item-content>
     </v-list-item>
   </v-container>
@@ -29,7 +29,14 @@ export default class NoteList extends Vue {
 </script>
 
 <style scoped>
-  .card-content {
+  .list-container {
+    text-align: left;
+  }
+  .list-title {
+    font-size: 14pt;
+    font-weight: bold;
+  }
+  .list-content {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

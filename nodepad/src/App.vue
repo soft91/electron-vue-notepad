@@ -1,18 +1,28 @@
 <template>
   <v-app>
-    <v-main>
-      <v-container>
-        <v-row>
-          <v-col>
-            <NoteContainer/>
-          </v-col>
-          <v-divider vertical></v-divider>
-          <v-col>
-            <NoteListContainer/>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
+    <v-container>
+      <v-row>
+        <v-col
+          class="note-container"
+        >
+          <NoteContainer/>
+        </v-col>
+        <v-divider vertical></v-divider>
+        <v-col>
+          <NoteListContainer/>
+        </v-col>
+      </v-row>
+      <v-btn
+        class="add-button"
+        fab
+        dark
+        color="indigo"
+      >
+        <v-icon dark>
+          mdi-pencil
+        </v-icon>
+    </v-btn>
+    </v-container>
   </v-app>
 </template>
 
@@ -33,4 +43,24 @@ export default class App extends Vue {
 }
 </script>
 <style scoped>
+  .app-main {
+    padding: 12px;
+  }
+
+  .add-button {
+    display: none;
+    position:fixed;
+    bottom:40px;
+    right:40px;
+  }
+
+  @media screen and (max-width: 850px){
+    .note-container {
+      display: none;
+    }
+
+    .add-button {
+      display: inline-flex;
+    }
+  }
 </style>
