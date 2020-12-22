@@ -5,8 +5,9 @@ module.exports = {
   },
   'extends': [
     'plugin:vue/essential',
+    "plugin:@typescript-eslint/recommended",
     'eslint:recommended',
-    '@vue/typescript/recommended'
+    '@vue/typescript/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2020
@@ -14,11 +15,6 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    "@typescript-eslint/no-inferrable-types": [
-      2,
-      {
-        "ignoreParameters": true
-      }
-    ]
+    "@typescript-eslint/no-inferrable-types": [0, "ignore-params"]
   }
 }

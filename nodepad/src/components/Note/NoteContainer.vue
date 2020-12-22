@@ -1,10 +1,11 @@
 <template>
-  <v-container>
+  <v-container
+    id="note-container"
+  >
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
           :src="require('../../assets/Logo.png')"
-          class="my-3"
           contain
           height="200"
         />
@@ -35,3 +36,9 @@ export default class NoteContainer extends Vue {
   
 }
 </script>
+
+<style scoped>
+  #note-container {
+    background-color: #FFFFFF;
+  }
+</style>

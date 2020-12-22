@@ -39,16 +39,22 @@
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Ref } from 'vue-property-decorator'
+import { IVForm } from '@/Types'
 
 @Component
 export default class NoteForm extends Vue {
+  @Ref("form") readonly form!: IVForm;
+  private title: string = '';
+  private content: string = '';
+  private valid: boolean = false;
+
 
   validate(): void{
-    this.$refs.form.validate()
+    this.form.validate();
   }
   reset(): void {
-    this.$refs.form.reset()
+    this.form.reset();
   }
 }
 </script>

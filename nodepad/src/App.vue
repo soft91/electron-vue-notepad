@@ -17,11 +17,18 @@
         fab
         dark
         color="indigo"
+        @click="dialog = !dialog"
       >
         <v-icon dark>
           mdi-pencil
         </v-icon>
     </v-btn>
+    <v-dialog
+      v-model="dialog"
+      width="400"
+    >
+      <NoteContainer/>
+    </v-dialog>
     </v-container>
   </v-app>
 </template>
@@ -39,7 +46,7 @@ import NoteListContainer from '@/components/NoteList/NoteListContainer.vue';
   }
 })
 export default class App extends Vue { 
-
+  private dialog: boolean = false;
 }
 </script>
 <style scoped>
