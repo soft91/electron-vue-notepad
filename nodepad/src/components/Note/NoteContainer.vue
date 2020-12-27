@@ -5,7 +5,7 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
-          :src="require('../../assets/Logo.png')"
+          :src="require('@/assets/Logo.png')"
           contain
           height="200"
         />
