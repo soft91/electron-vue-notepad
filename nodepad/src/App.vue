@@ -50,10 +50,6 @@ export default class App extends Vue {
 }
 </script>
 <style scoped>
-  .app-main {
-    padding: 12px;
-  }
-
   .add-button {
     display: none;
     position:fixed;
