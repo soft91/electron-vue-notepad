@@ -3,3 +3,9 @@ export interface IVForm {
   resetValidation: () => boolean;
   reset: () => void;
 }
+
+export interface ListTypes {
+  title: string,
+  headline: string,
+  subtitle: string
+}

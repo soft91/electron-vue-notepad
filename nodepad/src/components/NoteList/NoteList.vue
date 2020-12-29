@@ -7,6 +7,7 @@
       <v-list-item
         :key="value.title"
         three-line
+        @click="dialog = !dialog"
       >
         <v-list-item-content class="list-container">
           <v-list-item-title class="list-title">{{ value.headline }}</v-list-item-title>
@@ -24,6 +25,13 @@
       ></v-divider>
       </template>
     </v-list-item-group>
+    <v-dialog
+		  transition="dialog-bottom-transition"
+      v-model="dialog"
+      max-width="600"
+    >
+      <NoteItem/>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -31,8 +39,14 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-@Component
+import NoteItem from '@/components/Note/NoteItem.vue'
+
+@Component({
+  components: { NoteItem }
+})
 export default class NoteList extends Vue {
+  private dialog: boolean = false;
+
   get listItems() {
     return this.$store.getters.filteredItems;
   }
