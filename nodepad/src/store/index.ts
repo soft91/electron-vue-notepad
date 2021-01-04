@@ -70,7 +70,8 @@ export default new Vuex.Store({
         subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
         title: 'Britta Holt2',
       }
-    ]
+    ],
+    selectedListItem: {}
   },
   getters:{
     filteredItems(state) {
@@ -84,11 +85,16 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    // 뮤테이션은 동기적으로 트랜잭션을 실행
     serachListItem(state, payload) {
-      state.search = payload
+      state.search = payload;
+    },
+    getListItem(state, payload) {
+      state.selectedListItem = payload;
     }
   },
   actions: {
+    // 액션은 비동기적으로 트랜잭션을 실행(뮤테이션을 실행시키기 위한 역활)
 
   }
 })

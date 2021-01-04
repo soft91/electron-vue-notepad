@@ -7,7 +7,7 @@
       <v-list-item
         :key="value.title"
         three-line
-        @click="dialog = !dialog"
+        @click="showDialog(index)"
       >
         <v-list-item-content class="list-container">
           <v-list-item-title class="list-title">{{ value.headline }}</v-list-item-title>
@@ -30,7 +30,7 @@
       v-model="dialog"
       max-width="600"
     >
-      <NoteItem/>
+      <NoteItem @close-dialog="dialog = !dialog"/>
     </v-dialog>
   </v-container>
 </template>
@@ -46,9 +46,15 @@ import NoteItem from '@/components/Note/NoteItem.vue'
 })
 export default class NoteList extends Vue {
   private dialog: boolean = false;
+  private selectedIndex: number = 0;
 
-  get listItems() {
+  private get listItems() {
     return this.$store.getters.filteredItems;
+  }
+
+  private showDialog(index: number): boolean {
+    this.$store.commit('getListItem', this.$store.state.dummyData[index]);
+    return this.dialog = !this.dialog;
   }
 }
 </script>
