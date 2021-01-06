@@ -5,17 +5,17 @@
     >
     <template v-for="(value, index) in listItems">
       <v-list-item
-        :key="value.title"
+        :key="value.action"
         three-line
         @click="showDialog(index)"
       >
         <v-list-item-content class="list-container">
-          <v-list-item-title class="list-title">{{ value.headline }}</v-list-item-title>
+          <v-list-item-title class="list-title">{{ value.title }}</v-list-item-title>
           <v-list-item-subtitle class="list-sub-title">
             {{ value.subtitle }}
           </v-list-item-subtitle>
           <v-list-item-content class="list-content">
-            {{ value.title }}
+            {{ value.content }}
           </v-list-item-content>
         </v-list-item-content>
       </v-list-item>

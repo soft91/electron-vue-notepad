@@ -3,9 +3,9 @@
 		<v-toolbar
 			color="primary"
 			dark
-		>{{ headline }}</v-toolbar>
+		>{{ title }}</v-toolbar>
 		<v-card-text>
-			<div>{{ title }}</div>
+			<div>{{ content }}</div>
 		</v-card-text>
 		<v-card-actions class="justify-end">
 			<v-btn
@@ -21,12 +21,12 @@ import { Component } from 'vue-property-decorator'
 
 @Component
 export default class NoteItem extends Vue {
-	private get headline(): string{
-		return this.$store.state.selectedListItem.headline;
-	}
-
 	private get title(): string {
 		return this.$store.state.selectedListItem.title;
+	}
+
+	private get content(): string{
+		return this.$store.state.selectedListItem.content;
 	}
 
 	private closeDialog(): void{

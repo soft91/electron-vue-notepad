@@ -17,7 +17,7 @@
         v-model="dialog"
         width="400"
       >
-        <NoteContainer/>
+        <NoteContainer @close-dialog="dialog = !dialog"/>
       </v-dialog>
     </v-container>
   </v-app>

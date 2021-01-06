@@ -12,66 +12,66 @@ export default new Vuex.Store({
       //NoteList Dummy Data
       {
         action: '15 min',
-        headline: 'Brunch this weekend?',
+        title: 'Brunch this weekend?',
         subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-        title: 'Ali Connors',
+        content: 'Ali Connors',
       },
       {
         action: '2 hr',
-        headline: 'Summer BBQ',
+        title: 'Summer BBQ',
         subtitle: `Wish I could come, but I'm out of town this weekend.`,
-        title: 'me, Scrott, Jennifer',
+        content: 'me, Scrott, Jennifer',
       },
       {
         action: '6 hr',
-        headline: 'Oui oui',
+        title: 'Oui oui',
         subtitle: 'Do you have Paris recommendations? Have you ever been?',
-        title: 'Sandra Adams',
+        content: 'Sandra Adams',
       },
       {
         action: '12 hr',
-        headline: 'Birthday gift',
+        title: 'Birthday gift',
         subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
-        title: 'Trevor Hansen',
+        content: 'Trevor Hansen',
       },
       {
         action: '18hr',
-        headline: 'Recipe to try',
+        title: 'Recipe to try',
         subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
-        title: 'Britta Holt',
+        content: 'Britta Holt',
       },
       {
-        action: '15 min',
-        headline: 'Brunch this weekend?',
+        action: '25 min',
+        title: 'Brunch this weekend?',
         subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-        title: 'Ali Connors2',
+        content: 'Ali Connors2',
       },
       {
-        action: '2 hr',
-        headline: 'Summer BBQ',
+        action: '20 hr',
+        title: 'Summer BBQ',
         subtitle: `Wish I could come, but I'm out of town this weekend.`,
-        title: 'me, Scrott, Jennifer2',
+        content: 'me, Scrott, Jennifer2',
       },
       {
-        action: '6 hr',
-        headline: 'Oui oui',
+        action: '99 hr',
+        title: 'Oui oui',
         subtitle: 'Do you have Paris recommendations? Have you ever been?',
-        title: 'Sandra Adams2',
+        content: 'Sandra Adams2',
       },
       {
-        action: '12 hr',
-        headline: 'Birthday gift',
+        action: '200 hr',
+        title: 'Birthday gift',
         subtitle: 'Have any ideas about what we should get Heidi for her birthday?',
-        title: 'Trevor Hansen2',
+        content: 'Trevor Hansen2',
       },
       {
-        action: '18hr',
-        headline: 'Recipe to try',
+        action: '180hr',
+        title: 'Recipe to try',
         subtitle: 'We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
-        title: 'Britta Holt2',
+        content: 'Britta Holt2',
       }
     ],
-    selectedListItem: {}
+    selectedListItem: {},
   },
   getters:{
     filteredItems(state) {
@@ -79,8 +79,8 @@ export default new Vuex.Store({
       return state.dummyData.filter((item: ListTypes) => {
         if(!state.search) return state.dummyData;
         return item.title.match(new RegExp(state.search, "i"))  || 
-               item.headline.match(new RegExp(state.search, "i")) || 
-               item.subtitle.match(new RegExp(state.search, "i"))
+               item.subtitle.match(new RegExp(state.search, "i")) || 
+               item.content.match(new RegExp(state.search, "i"))
       })
     }
   },
@@ -91,6 +91,9 @@ export default new Vuex.Store({
     },
     getListItem(state, payload) {
       state.selectedListItem = payload;
+    },
+    insertListItem(state, payload) {
+      state.dummyData.push(payload);
     }
   },
   actions: {

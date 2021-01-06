@@ -6,6 +6,6 @@ export interface IVForm {
 
 export interface ListTypes {
   title: string,
-  headline: string,
-  subtitle: string
+  subtitle: string,
+  content: string,
 }
