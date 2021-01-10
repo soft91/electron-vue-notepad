@@ -1,15 +1,13 @@
 <template>
 	<v-card>
 		<v-toolbar
-			color="primary"
 			dark
 		>{{ title }}</v-toolbar>
-		<v-card-text>
+		<v-card-text class="content">
 			<div>{{ content }}</div>
 		</v-card-text>
 		<v-card-actions class="justify-end">
-			<v-btn
-				text
+			<v-btn 
 				@click="closeDialog"
 			>Close</v-btn>
 		</v-card-actions>
@@ -35,5 +33,8 @@ export default class NoteItem extends Vue {
 }
 </script>
 <style scoped>
-
+	.v-dialog > .v-card > .v-card__text {
+		padding: 10px 20px;
+		font-size: 1rem;
+	}
 </style>

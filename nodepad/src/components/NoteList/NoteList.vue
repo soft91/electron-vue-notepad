@@ -18,6 +18,28 @@
             {{ value.content }}
           </v-list-item-content>
         </v-list-item-content>
+        <v-list-item-action>
+          <v-btn 
+            icon
+            @click.stop="editListItem(index)"
+          >
+            <v-icon
+              color="green darken-2"
+            >
+              mdi-square-edit-outline
+            </v-icon>
+          </v-btn>
+          <v-btn 
+            icon
+            @click.stop="deleteListItem(index)"
+          >
+            <v-icon
+              color="red darken-2"
+            >
+              mdi-delete
+            </v-icon>
+          </v-btn>
+        </v-list-item-action>
       </v-list-item>
       <v-divider
         v-if="index < listItems.length - 1"
@@ -55,6 +77,15 @@ export default class NoteList extends Vue {
   private showDialog(index: number): boolean {
     this.$store.commit('getListItem', this.$store.state.dummyData[index]);
     return this.dialog = !this.dialog;
+  }
+
+  private editListItem(index: number) {
+    console.log('update test');
+    //return this.dialog = !this.dialog;
+  }
+
+  private deleteListItem(index: number) {
+    console.log('delete test')
   }
 }
 </script>
