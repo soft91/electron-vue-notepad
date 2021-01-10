@@ -29,7 +29,7 @@
               mdi-square-edit-outline
             </v-icon>
           </v-btn>
-          <v-btn 
+          <v-btn
             icon
             @click.stop="deleteListItem(index)"
           >
@@ -70,7 +70,7 @@ export default class NoteList extends Vue {
   private dialog: boolean = false;
   private selectedIndex: number = 0;
 
-  private get listItems() {
+  private get listItems(): Array<object> {
     return this.$store.getters.filteredItems;
   }
 
