@@ -79,7 +79,7 @@ export default class NoteContainer extends Vue {
       content: this.content
     }; 
 
-    this.$store.commit('insertListItem', data);
+    this.$store.commit('insertNoteItem', data);
     this.reset();
     this.$emit('close-dialog');
   }

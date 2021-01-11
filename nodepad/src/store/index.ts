@@ -92,7 +92,7 @@ export default new Vuex.Store({
     getListItem(state, payload) {
       state.selectedListItem = payload;
     },
-    insertListItem(state, payload) {
+    insertNoteItem(state, payload) {
       state.dummyData.push(payload);
     }
   },

@@ -50,9 +50,16 @@
     <v-dialog
 		  transition="dialog-bottom-transition"
       v-model="dialog"
-      max-width="600"
+      max-width="800"
     >
       <NoteItem @close-dialog="dialog = !dialog"/>
+    </v-dialog>
+    <v-dialog
+		  transition="dialog-bottom-transition"
+      v-model="edit"
+      max-width="800"
+    >
+      <NoteEditItem @close-dialog="edit = !edit"/>
     </v-dialog>
   </v-container>
 </template>
@@ -62,12 +69,17 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
 import NoteItem from '@/components/Note/NoteItem.vue'
+import NoteEditItem from '@/components/Note/NoteEditItem.vue'
 
 @Component({
-  components: { NoteItem }
+  components: {
+    NoteItem,
+    NoteEditItem
+  }
 })
 export default class NoteList extends Vue {
   private dialog: boolean = false;
+  private edit: boolean = false;
   private selectedIndex: number = 0;
 
   private get listItems(): Array<object> {
@@ -80,8 +92,8 @@ export default class NoteList extends Vue {
   }
 
   private editListItem(index: number) {
-    console.log('update test');
-    //return this.dialog = !this.dialog;
+    this.$store.commit('getListItem', this.$store.state.dummyData[index]);
+    return this.edit = !this.edit;
   }
 
   private deleteListItem(index: number) {
