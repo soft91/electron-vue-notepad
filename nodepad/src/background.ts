@@ -22,7 +22,6 @@ async function createWindow() {
       nodeIntegration: true,
       enableRemoteModule: true
     },
-    icon: path.join(__dirname, '/assets/Logo.png'),
     frame: false
   })
 

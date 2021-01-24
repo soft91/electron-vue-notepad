@@ -5,7 +5,7 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
-          :src="require('@/assets/Logo.png')"
+          :src="require('@/assets/logo.png')"
           contain
           height="200"
         />
@@ -67,8 +67,6 @@ export default class NoteContainer extends Vue {
   private content: string = '';
   private valid: boolean = false;
 
-  private formData: object = {};
-
   private validate(): void{
     // Form 유효성 검사
     if(!this.form.validate()) return;
@@ -80,6 +78,7 @@ export default class NoteContainer extends Vue {
     }; 
 
     this.$store.commit('insertNoteItem', data);
+
     this.reset();
     this.$emit('close-dialog');
   }
