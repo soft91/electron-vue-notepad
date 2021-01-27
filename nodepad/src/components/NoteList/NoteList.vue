@@ -97,7 +97,9 @@ export default class NoteList extends Vue {
   }
 
   private deleteListItem(index: number) {
-    console.log('delete test')
+    this.$confirm('정말로 삭제하시겠습니까?').then(res => {
+      if(res === true) this.$store.commit('deleteNoteItem', index);
+    })
   }
 }
 </script>

@@ -94,6 +94,9 @@ export default new Vuex.Store({
     },
     insertNoteItem(state, payload) {
       state.dummyData.push(payload);
+    },
+    deleteNoteItem(state, payload) {
+      state.dummyData.splice(payload, 1);
     }
   },
   actions: {
