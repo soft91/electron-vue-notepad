@@ -37,8 +37,16 @@ import { Component } from 'vue-property-decorator'
 
 @Component
 export default class NoteItem extends Vue {
+	private set title(value: string) {
+		this.$store.commit('selectedListItem', value);
+	}
+
 	private get title(): string {
 		return this.$store.state.selectedListItem.title;
+	}
+
+	private set content(value: string) {
+		this.$store.commit('selectedListItem', value);
 	}
 
 	private get content(): string {
@@ -46,7 +54,6 @@ export default class NoteItem extends Vue {
 	}
 
 	private updateNote(): void {
-		console.log('test');
 		this.closeDialog();
 	}
 
