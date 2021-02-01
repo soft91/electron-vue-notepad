@@ -80,7 +80,6 @@ import NoteEditItem from '@/components/Note/NoteEditItem.vue'
 export default class NoteList extends Vue {
   private dialog: boolean = false;
   private edit: boolean = false;
-  private selectedIndex: number = 0;
 
   private get listItems(): Array<object> {
     return this.$store.getters.filteredItems;

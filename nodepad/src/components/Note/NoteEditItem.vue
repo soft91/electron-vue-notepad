@@ -12,23 +12,10 @@
 			<v-textarea
 				solo
 				name="input-7-4"
-				:value="content"
+				height="550"
+				v-model="content"
 			></v-textarea>
 		</v-card-text>
-		<v-card-actions class="justify-end">
-			<v-btn
-				color="success"
-				@click="updateNote"
-			>
-				<v-icon left>
-					mdi-pencil
-				</v-icon>
-				Edit
-			</v-btn>
-			<v-btn 
-				@click="closeDialog"
-			>Close</v-btn>
-		</v-card-actions>
 	</v-card>
 </template>
 <script lang="ts">
@@ -37,8 +24,9 @@ import { Component } from 'vue-property-decorator'
 
 @Component
 export default class NoteItem extends Vue {
+
 	private set title(value: string) {
-		this.$store.commit('selectedListItem', value);
+		this.$store.state.selectedListItem.title = value;
 	}
 
 	private get title(): string {
@@ -46,19 +34,11 @@ export default class NoteItem extends Vue {
 	}
 
 	private set content(value: string) {
-		this.$store.commit('selectedListItem', value);
+		this.$store.state.selectedListItem.content = value;
 	}
 
 	private get content(): string {
 		return this.$store.state.selectedListItem.content;
-	}
-
-	private updateNote(): void {
-		this.closeDialog();
-	}
-
-	private closeDialog(): void {
-		this.$emit('close-dialog');
 	}
 }
 </script>

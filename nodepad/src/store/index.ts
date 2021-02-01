@@ -106,7 +106,9 @@ export default new Vuex.Store({
       state.dummyData.push(payload);
     },
     editNoteItem(state, payload) {
-      
+      state.dummyData.map(value => {
+        value.index === payload.index ? {...payload} : value
+      });
     },
     deleteNoteItem(state, payload) {
       state.dummyData.splice(payload, 1);
